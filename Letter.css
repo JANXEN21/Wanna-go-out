@@ -1,0 +1,95 @@
+@keyframes unwrapLetter {
+  0% {
+    transform: translateY(20vh);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLetter {
+  0% {
+    clip-path: inset(0 0 75% 0);
+  }
+
+  99% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  100% {
+    clip-path: none;
+  }
+}
+
+
+.letter {
+  display: flex;
+  flex-direction: column;
+  background: #ffb6c1;
+  width: 70vw;
+  aspect-ratio: 1/1.4;
+  max-height: calc(70vw * 1.4);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  clip-path: inset(0 0 75% 0);
+
+  &.opened {
+    animation-name: unwrapLetter;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+  }
+
+  &.revealed {
+    animation-name: revealLetter;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+
+  .prompt {
+    font-size: 2.25rem;
+    font-weight: 900;
+    padding: 0 1.5rem;
+    color: #fff;
+  }
+
+  .buttons {
+    padding-top: 2rem;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .image-container {
+    display: flex;
+    flex-direction: row;
+
+    .image {
+      max-width: 20vw;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      margin-left: 0.75rem;
+    }
+  }
+
+
+  .valentine-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    gap: 1rem;
+
+    .message {
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: #fff
+    }
+  }
+}
